@@ -19,14 +19,5 @@ for (let i = 0; i < 2; i++ ) {
 console.log (personalMovieDB);
 
 
- let nam = 11;
- (nam === 5) ? console.log("ok"): console.log("No");
 
 
- if (nam < 5) {
-  console.log("ok")
- } else if (nam < 10){
-  console.log("Normal")
- } else {
-console.log("No")
- };
