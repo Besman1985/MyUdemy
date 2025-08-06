@@ -3,51 +3,177 @@
 
 
 
-// let numberOfFilms;
-// for (let j = 1; j < 2; j++) {
-//   let c = prompt("Сколько фильмов вы уже посмотрели", "");
-//   if (c === null || isNaN(c) || c.length > 50 || c === "") {
-//     j--;
-//     continue;
-//   } else {
-//     numberOfFilms = c;
-//     if (c <= 10) {
-//       alert("Просмотрено довольно мало фильмов")
-//     } else if (10 < c <= 30) {
-//       alert("Вы классический зритель")
-//     } else if (c > 30) {
-//       alert("Вы Киноман")
-//     } else {
-//       alert("Произошла ошибка")
-//     };
-//   };
-// };
+let numberOfFilms;
+
+function start() {
+    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели", "");
+
+    while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
+        numberOfFilms = prompt("Сколько фильмов вы уже посмотрели", "");
+    }
+}
+
+start();
 
 
-// let personalMovieDB = {
-//   count: numberOfFilms,
-//   movies: {},
-//   actors: {},
-//   genres: [],
-//   privat: false
-// };
-
-// console.log(personalMovieDB);
+let personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+};
 
 
-// for (let i = 0; i < 2; i++) {
-//   let
-//     a = prompt("Один из последних просмотренных фильмов?", ""),
-//     b = prompt("Насколько оцените его?", "");
-//   if (a === null || b === null || a.length > 50 || a == "" || b == "") {
-//     i--;
-//   };
-//   personalMovieDB.movies[a] = b;
+function detectPersonalLevel() {
+    if (personalMovieDB.count <= 10) {
+        alert("Просмотрено довольно мало фильмов")
+    } else if (10 < personalMovieDB.count <= 30) {
+        alert("Вы классический зритель")
+    } else if (personalMovieDB.count > 30) {
+        alert("Вы Киноман")
+    } else {
+        alert("Произошла ошибка")
+    };
+}
+detectPersonalLevel();
 
-// };
+
+function rememberMyFilms() {
+
+    for (let i = 0; i < 2; i++) {
+        let
+            a = prompt("Один из последних просмотренных фильмов?", ""),
+            b = prompt("Насколько оцените его?", "");
+        if (a === null || b === null || a.length > 50 || a == "" || b == "") {
+            i--;
+        };
+        personalMovieDB.movies[a] = b;
+
+    };
+
+}
+rememberMyFilms();
+
+function showMyDB() {
+    if (personalMovieDB.privat === false) {
+        console.log(personalMovieDB)
+    };
+}
+
+showMyDB();
+
+function writeYourGenres() {
+
+    for (let i = 1; i<=3; i++) {
+      personalMovieDB.genres [i-1] = prompt (`"Ваш любимый жанр под номером ${i}"`)
+    };
 
 
-// console.log(personalMovieDB);
+}
+ writeYourGenres();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // const Name = function (a,b) {
@@ -256,7 +382,7 @@
 //    (или число в особых случаях, о которых ниже), где эти числа идут по порядку,
 //     разделенные тремя дефисами "---". После последнего числа их не должно быть.
 
-// Если второй аргумент не является числом, равен или меньше нуля - то 
+// Если второй аргумент не является числом, равен или меньше нуля - то
 // возвращать просто первый аргумент. (Проверяем через оператор typeof)
 
 // Примеры:
@@ -274,13 +400,48 @@
 // Вызов функции getMathResult(20, -5) даст ответ 20
 
 // Эта задача уже ближе к реальности, когда вам нужно учитывать и тип данных у аргументов, проверять
-//  их и продумывать логику работы внутри. Обратите внимание на прогрессию, 
+//  их и продумывать логику работы внутри. Обратите внимание на прогрессию,
 //  она рассчитывается по простой формуле умножения.
-//   Если первый аргумент 5, а второй 3, то число повторяется 3 раза, 
-//   каждый раз увеличиваясь на само себя. 
- 
+//   Если первый аргумент 5, а второй 3, то число повторяется 3 раза,
+//   каждый раз увеличиваясь на само себя.
+
 
 // Место для третьей задачи
-function getMathResult() {
 
-}
+// let n = "Я люблю весну потому, что это утро природы. Мальчик написал в уголке. Пусть всегда будет солнце! Пусть всегда будет мама! Пусть всегда буду я! Море было лазурное, зелёное и даже золотистое"
+// function getTextResult(text,nam) {
+
+//     let textN = text.split(/[.!]\s*/),
+//         textAbj = [],
+//         word = " ";
+
+//     for (let i = 0; i < textN.length; i++) {
+//         if (i == 0) {
+//             textAbj[i] = textN[i].split(" ");
+//             word += `${textAbj[i][nam]}`;
+//         } else {
+//             textAbj[i] = textN[i].split(" ");
+//             word += `,${textAbj[i][nam]}`;
+//         };
+
+//     };
+//     return word;
+// }
+
+// console.log(getTextResult(n,0));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
