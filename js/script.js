@@ -181,10 +181,31 @@ console.log(findMaxNumber(1, 35, 22));
 
 
 
+function fib(nam) {
+    let prev = 0,
+        next = 1;
+    result = "0";
+    if (typeof (nam) == "string" || !Number.isInteger(nam)) {
+        result = " ";
+    } else if (nam === 1) {
+        result = 0;
+    } else if (nam === 0) {
+        result = "";
+    } else {
+        for (let i = 1; i < nam; i++) {
+            next = prev + next;
+            prev = next - prev;
+            result += `.${prev}`;
+        };
+    };
+
+    return result;
 
 
+}
 
 
+console.log(fib(1.5));
 
 
 
