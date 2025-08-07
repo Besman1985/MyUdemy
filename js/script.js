@@ -65,17 +65,117 @@ showMyDB();
 
 function writeYourGenres() {
 
-    for (let i = 1; i<=3; i++) {
-      personalMovieDB.genres [i-1] = prompt (`"Ваш любимый жанр под номером ${i}"`)
+    for (let i = 1; i <= 3; i++) {
+        personalMovieDB.genres[i - 1] = prompt(`"Ваш любимый жанр под номером ${i}"`)
     };
 
 
 }
- writeYourGenres();
+writeYourGenres();
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+function calculateVolumeAndArea(a) {
+
+    if (!isNaN(a) && Number.isInteger(a) && a > 0) {
+        let volume,
+            area,
+            result;
+        volume = a * a * a;
+        area = 6 * (a * a);
+        result = `'Объем куба:${volume}, площадь всей поверхности: ${area}'`;
+        return result;
+    } else {
+        let error = 'При вычислении произошла ошибка';
+        return error;
+
+    };
+
+}
+
+console.log(calculateVolumeAndArea(15));
+
+
+function getCoupeNumber(nam) {
+    let result;
+    if (!isNaN(nam) && Number.isInteger(nam) && nam > 0 && nam <= 36) {
+        if (nam > 0 && nam <= 4) {
+            result = 1;
+        } else if (nam > 4 && nam <= 8) {
+            result = 2;
+        } else if (nam > 8 && nam <= 12) {
+            result = 3;
+        } else if (nam > 12 && nam <= 16) {
+            result = 4;
+        } else if (nam > 16 && nam <= 20) {
+            result = 5;
+        } else if (nam > 20 && nam <= 24) {
+            result = 6;
+        } else if (nam > 24 && nam <= 28) {
+            result = 7;
+        } else if (nam > 28 && nam <= 32) {
+            result = 8;
+        } else if (nam > 32 && nam <= 36) {
+            result = 9;
+        };
+        return result;
+    } else if (nam < 0 || !Number.isInteger(nam)) {
+        result = "Ошибка. Проверьте правильность введенного номера места";
+        return result;
+    } else {
+        result = "Таких мест в вагоне не существует";
+        return result;
+    };
+};
+console.log(getCoupeNumber(0));
+
+function getTimeFromMinutes(allMinut) {
+    let time;
+    if (allMinut < 0 || typeof (allMinut) == "string") {
+        time = "Ошибка, проверьте данные";
+        return time;
+    } else {
+        let minut = allMinut % 60;
+        let hours = (allMinut - minut) / 60;
+        if (hours === 0 || hours === 5 || hours === 6 || hours === 7 || hours === 8 || hours === 9 || hours === 10) {
+            time = `"Это ${hours} часов и ${minut} минут"`;
+        } else if (hours === 1 || hours === 21) {
+            time = `"Это ${hours} час и ${minut} минут"`;
+        } else {
+            time = `"Это ${hours} часа и ${minut} минут"`;
+        };
+
+        return time;
+    };
+
+}
+
+console.log(getTimeFromMinutes(210));
+
+
+function findMaxNumber(a, b, c, d) {
+    const arr = [a, b, c, d];
+    if (arr.length < 4) {
+        return "Error";
+    } else {
+        let max = Math.max(...arr);
+        return max;
+    };
+
+}
+console.log(findMaxNumber(1, 35, 22));
 
 
 
